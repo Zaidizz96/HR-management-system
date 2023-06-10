@@ -1,0 +1,99 @@
+
+body {
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #008B8B;
+    height: 120px;
+}
+
+header img {
+    width: 130px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+header h1 {
+    color: #F0F8FF;
+    font-family: "Roboto";
+    align-self: center;
+}
+
+nav {
+    display: flex;
+    gap: 10px;
+}
+
+nav a {
+    color: antiquewhite;
+    position: relative;
+    right: 10px;
+    top: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: small;
+}
+
+
+
+.bg {
+    /* The image used */
+    background-image: url(https://www.shutterstock.com/image-vector/recruiter-workplace-doodle-concept-top-260nw-1670123863.jpg);
+  
+    /* Full height */
+    height: 100%; 
+    width: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+table {
+    width: 400px;
+    margin: 30px;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+thead {
+    text-align: left;
+    background-color: #87ceeb;
+    color: #fff;
+}
+
+th,
+td {
+    padding: 15px
+}
+
+tr:hover {
+    background-color: #d6c9e0;
+}
+
+footer {
+    height: 100px;
+    background-color: #008B8B;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+}
+
+footer a img {
+    width: 45px;
+    height: 40px;
+}
+
+footer b {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    position: absolute;
+    right: 100px;
+}
