@@ -32,10 +32,13 @@ function eventHandler(event) {
     let empDepartment = event.target.dep.value;
     let empLevel = event.target.Lev.value;
     let empImg = event.target.imgU.value;
+    
 
-    let newEmployee = new Employee(Fname, empDepartment, empLevel, empImg);
+    let newEmployee = new Employee(Fname, empDepartment, empLevel, empImg );
     newEmployee.calculateSalary();
+    newEmployee.generateID();
     newEmployee.renderEmployee();
+    
 
 }
 
@@ -67,7 +70,7 @@ Employee.prototype.calculateSalary = function () {
     this.netSalary = this.salary - this.salary * .075;
 }
 
-Employee.prototype.renderEmployee = function (i) {
+Employee.prototype.renderEmployee = function () {
    
     let cardElement = document.createElement("div");
     cardElement.className= "card"; 
@@ -93,12 +96,13 @@ Employee.prototype.renderEmployee = function (i) {
     cardElement.appendChild(detailsSubCardElement);
      
     document.getElementById("cardsId").appendChild(cardElement);
+    
 }   
 
 for (let i = 0; i < employees.length; i++) {
     employees[i].calculateSalary();
     employees[i].generateID();
-    employees[i].renderEmployee(i);
+    employees[i].renderEmployee();
 
 }
 console.log(employees);
