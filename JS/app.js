@@ -22,6 +22,7 @@ let employee5 = new Employee("Omar Zaid", "Development", "Senior", "./assets/mal
 let employee6 = new Employee("Rana Saleh", "Development", "Junior", "./assets/female.jpg")
 let employee7 = new Employee("Hadi Ahmad", "Finance", "Mid-Senior", "./assets/male.jpg")
 
+
 const formElement = document.getElementById("formTag");
 formElement.addEventListener("submit", eventHandler);
 
@@ -32,15 +33,34 @@ function eventHandler(event) {
     let empDepartment = event.target.dep.value;
     let empLevel = event.target.Lev.value;
     let empImg = event.target.imgU.value;
-    
 
-    let newEmployee = new Employee(Fname, empDepartment, empLevel, empImg );
-    newEmployee.calculateSalary();
+
+    let newEmployee = new Employee(Fname, empDepartment, empLevel, empImg);
     newEmployee.generateID();
+    newEmployee.calculateSalary();
     newEmployee.renderEmployee();
-    
+    setEmployees(employees);
+}
+
+function setEmployees(data) {
+    let dataStr = JSON.stringify(data)
+    localStorage.setItem('employee', dataStr)
 
 }
+// setEmployees(employees);
+
+function getEmployees() {
+    let retreivedArr = localStorage.getItem('employee');
+    let arrOfObj = JSON.parse(retreivedArr);
+    // console.log(convertToObject);
+    if (arrOfObj !== null) {
+        for (let i = 7; i < arrOfObj.length; i++) {
+            new Employee(arrOfObj[i].fullName, arrOfObj[i].department, arrOfObj[i].level, arrOfObj[i].imageUrl);
+        }
+    }
+
+}
+getEmployees();
 
 Employee.prototype.generateID = function () {
     for (let x = 1; x < employees.length; x++) {
@@ -71,42 +91,45 @@ Employee.prototype.calculateSalary = function () {
 }
 
 Employee.prototype.renderEmployee = function () {
-   
+
     let cardElement = document.createElement("div");
-    cardElement.className= "card"; 
+    cardElement.className = "card";
 
     let subCardElement = document.createElement("div");
-    subCardElement.className= "card-element"; 
+    subCardElement.className = "card-element";
 
     let imgEL = document.createElement("img");
     imgEL.src = this.imageUrl;
-    imgEL.className="card-image";
+    imgEL.className = "card-image";
 
     let detailsSubCardElement = document.createElement("div");
-    detailsSubCardElement.className= "card-element"; 
+    detailsSubCardElement.className = "card-element";
 
     let labelElement = document.createElement("label");
     labelElement.className = "card-label";
-    labelElement.textContent = "Name :" + this.fullName + " - ID :" + this.employeeId + 
-    "  Department : " + this.department + " - level :" + this.level;
+    labelElement.textContent = "Name :" + this.fullName + " - ID :" + this.employeeId +
+        "  Department : " + this.department + " - level :" + this.level;
     detailsSubCardElement.appendChild(labelElement);
 
     subCardElement.appendChild(imgEL);
     cardElement.appendChild(subCardElement);
     cardElement.appendChild(detailsSubCardElement);
-     
-    document.getElementById("cardsId").appendChild(cardElement);
-    
-}   
 
+    document.getElementById("cardsId").appendChild(cardElement);
+
+}
+
+// function renderAll(){
 for (let i = 0; i < employees.length; i++) {
     employees[i].calculateSalary();
     employees[i].generateID();
     employees[i].renderEmployee();
-
 }
-console.log(employees);
+//
+// console.log(employees);
+// setEmployees(employees);
 
 
-
-
+if(localStorage.getItem('employee') == null){
+    setEmployees(employees);
+}
