@@ -44,38 +44,17 @@ nav a {
 
 .bg {
     /* The image used */
-    background-image: url(https://www.shutterstock.com/image-vector/recruiter-workplace-doodle-concept-top-260nw-1670123863.jpg);
-
-    /* Full height */
+    background-image: url(https://e1.pxfuel.com/desktop-wallpaper/352/153/desktop-wallpaper-nice-backgrounds-extra-nice-background-pic.jpg);
     height: 100%;
     width: 100%;
-    /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-/* table {
-    width: 400px;
-    margin: 30px;
-    border-collapse: collapse;
-    background-color: #fff;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-}
 
-thead {
-    text-align: left;
-    background-color: #87ceeb;
-    color: #fff;
-}
-
-th,
-td {
-    padding: 15px
-} */
-
-tr:hover {
-    background-color: #d6c9e0;
+tr {
+    background-color: #79c2be;
 }
 
 footer {
@@ -123,4 +102,31 @@ footer b {
 .card-label {
     font-size: 15px;
     color: aliceblue;
+}
+
+#tableTag {
+    width: 700px;
+    margin: 30px;
+    border-collapse: collapse;
+    background-color: #b2baccaf;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+#theaID,
+#tFootID {
+    text-align: left;
+    background-color: #87ceeb;
+    color: #fff;
+}
+
+
+th,
+.tdClass {
+    padding: 15px;
+
+
+}
+
+#trID {
+    background-color: #ffffff;
 }
